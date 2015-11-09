@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.infrasoft.cordova.plugin"
+    version="1.0">
+    <name>PageCurlPlugin</name>
+    <description>The plugin to show page curl effect in Android</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,pagecurl</keywords>
+    <repo></repo>
+    <issue></issue>
+
+    <!-- <js-module src="www/page_curl_plugin.js" name="PageCurlPlugin">
+        <clobbers target="PageCurlPlugin" />
+    </js-module> -->
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="PageCurlPlugin" >
+                <param name="android-package" value="com.infrasoft.cordova.plugin.PageCurlPlugin"/>
+            </feature>
+        </config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:name="com.infrasoft.book.MainActivity" android:label="MainActivity">
+			</activity>
+		</config-file>
+		<source-file src="www/page_curl_plugin.js" target-dir="assets/www/js/plugins/page_curl_plugin/" />
+		
+        <source-file src="src/android/PageCurlPlugin.java" target-dir="src/com/infrasoft/cordova/plugin/" />
+		<source-file src="src/android/com/infrasoft/book/MainActivity.java" target-dir="src/com/infrasoft/book/" />
+		<source-file src="src/android/com/infrasoft/book/view/BookAdapter.java" target-dir="src/com/infrasoft/book/view/" />
+		<source-file src="src/android/com/infrasoft/book/view/BookLayout.java" target-dir="src/com/infrasoft/book/view/" />
+		<source-file src="src/android/com/infrasoft/book/view/BookModel.java" target-dir="src/com/infrasoft/book/view/" />
+		<source-file src="src/android/com/infrasoft/book/view/BookState.java" target-dir="src/com/infrasoft/book/view/" />
+		<source-file src="src/android/com/infrasoft/book/view/Corner.java" target-dir="src/com/infrasoft/book/view/" />
+		<source-file src="src/android/com/infrasoft/book/view/IAdapter.java" target-dir="src/com/infrasoft/book/view/" />
+		<source-file src="src/android/com/infrasoft/book/view/IBook.java" target-dir="src/com/infrasoft/book/view/" />
+		<source-file src="src/android/com/infrasoft/book/view/IListener.java" target-dir="src/com/infrasoft/book/view/" />
+			
+		<source-file src="layout/page_layout.xml" target-dir="res/layout/" />	
+		<source-file src="drawable-ldpi/ly.xml" target-dir="res/drawable-ldpi/" />
+    </platform>
+
+</plugin>
