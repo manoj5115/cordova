@@ -25,7 +25,7 @@
 			<activity android:name="com.infrasoft.book.MainActivity" android:label="MainActivity">
 			</activity>
 		</config-file>
-		<source-file src="www/page_curl_plugin.js" target-dir="assets/www/js/plugins/page_curl_plugin/" />
+		<source-file src="www/page_curl_plugin.js" target-dir="assets/www/plugins/page_curl_plugin/" />
 		
         <source-file src="src/android/PageCurlPlugin.java" target-dir="src/com/infrasoft/cordova/plugin/" />
 		<source-file src="src/android/com/infrasoft/book/MainActivity.java" target-dir="src/com/infrasoft/book/" />

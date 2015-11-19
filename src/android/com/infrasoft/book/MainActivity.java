@@ -30,8 +30,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         BookLayout bk = new BookLayout(this);
         String data = getIntent().getStringExtra("data");
-//        List<BookModel> bookPages = initPages(data);
-        List<BookModel> bookPages = initPages();
+        List<BookModel> bookPages = initPages(data);
+//        List<BookModel> bookPages = initPages();
         BookAdapter ba = new BookAdapter(this);
         // ba.addItem(str);
         ba.setData(bookPages);
@@ -40,26 +40,31 @@ public class MainActivity extends Activity {
     }
 
     private List<BookModel> initPages(String rawData) {
-        List<BookModel> bookPages = new ArrayList<BookModel>();
-        try {
-            JSONArray data = new JSONArray(rawData);
-            for (int i = 0; i < data.length(); i++) {
+        if(rawData != null && !rawData.isEmpty()) {
+            List<BookModel> bookPages = new ArrayList<BookModel>();
+            try {
+                JSONArray data = new JSONArray(rawData);
+                for (int i = 0; i < data.length(); i++) {
 
-                JSONObject row = data.getJSONObject(i);
-                if (row != null) {
-                    String title = row.getString("title");
-                    String content = row.getString("content");
-                    BookModel b = new BookModel();
-                    b.setTitle(title);
-                    b.setContent(content);
-                    bookPages.add(b);
+                    JSONObject row = data.getJSONObject(i);
+                    if (row != null) {
+                        String title = row.getString("title");
+                        String content = row.getString("content");
+                        BookModel b = new BookModel();
+                        b.setTitle(title);
+                        b.setContent(content);
+                        bookPages.add(b);
+                    }
+
                 }
-
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+            return bookPages;
         }
-        return bookPages;
+        else{
+            return initPages(); // return default data
+        }
     }
 
     private List<BookModel> initPages() {
